@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "PagePins",
+  "version": "0.1.0",
+  "description": "Pin a durable checklist over any page — built for tracking PR follow-ups.",
+  "permissions": ["storage", "contextMenus", "scripting"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "background": { "service_worker": "background.js" },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "PagePins — open pin bar",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["nav-bridge.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    }
+  ]
+}

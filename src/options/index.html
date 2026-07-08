@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>PagePins Settings</title>
+  <style>
+    body { font: 14px -apple-system, system-ui, sans-serif; max-width: 520px; margin: 32px auto; color: #1a1a1a; }
+    h1 { font-size: 18px; }
+    .row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #eee; gap: 12px; }
+    .row label { flex: 1; }
+    .desc { color: #777; font-size: 12px; margin-top: 2px; }
+    .hk { font-family: monospace; background: #f3f4f6; border: 1px solid #ccc; border-bottom-width: 2px; border-radius: 5px; padding: 4px 10px; cursor: pointer; }
+    .danger { color: #b91c1c; border: 1px solid #b91c1c; background: #fff; border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+    #status { color: #059669; height: 18px; }
+    @media (prefers-color-scheme: dark) {
+      body { color: #e6e6e6; background: #0d0d0f; }
+      .row { border-color: #262626; }
+      .hk { background: #1c1c20; border-color: #444; color: #8ab4ff; }
+      .danger { background: #0d0d0f; }
+    }
+  </style>
+</head>
+<body>
+  <h1>📌 PagePins</h1>
+  <div class="row">
+    <label>Summon / toggle pin bar<div class="desc">Opens the bar and focuses the input, or collapses to the pill</div></label>
+    <button id="summon" class="hk"></button>
+  </div>
+  <div class="row">
+    <label>Open overview<div class="desc">The zoom-out list of everything you're tracking</div></label>
+    <button id="overview" class="hk"></button>
+  </div>
+  <div class="row">
+    <label>Show pill on unpinned pages<div class="desc">Turn off to summon only via hotkey or the toolbar icon</div></label>
+    <input type="checkbox" id="pill" />
+  </div>
+  <div class="row">
+    <label>Delete all pins<div class="desc">Removes every pin from sync storage. Cannot be undone.</div></label>
+    <button id="clear" class="danger">Clear all pins…</button>
+  </div>
+  <p id="status"></p>
+  <script src="options.js"></script>
+</body>
+</html>
